@@ -3,12 +3,13 @@ class Adventure {
     constructor(adventureName, successCallback, errorCallback) {
         var adventure = this;
         adventure.nodes = [];
+        adventure.inventoryIds = [];
         var jqxhr = $.get({
             url: 'adventures/' + adventureName + '.adventurescript',
             cache: false
         })
             .done(function(data){
-                var places = data.split(/place:/i);
+                var places = data.split(/place:|inventory:/i);
                 addPlaces(places);
                 successCallback();
             })
@@ -38,6 +39,12 @@ class Adventure {
             node.descripton = '';
             while (lines.length > 0 && lines[0].substring(0, 2) != '=>' && lines[0].trim() != '') {
                 node.descripton += lines.shift().trim() + '\n';
+            }
+
+            // Trim the inventory keyword from the start of the description. 
+            if (node.descripton.trim().substring(0, 9).toLowerCase() === 'inventory'){
+                adventure.inventoryIds.push(node.title);
+                node.descripton = node.descripton.substring(9).trim();
             }
 
             // Action lines start with '=>'.
@@ -108,12 +115,34 @@ class Adventure {
                 action.label = actionArr[0].trim();
             }
 
-            var actionStr = actionArr[0].trim();
+            action.conditions = [];
+            // Loop through any conditions.
+            while (actionArr.length > 0 && actionArr[0].trim().substring(0, 3) == 'if ') {
+                var conditionStr = actionArr.shift();
+                // Skip this condition if it's malformed.
+                if (conditionStr.indexOf('is') > -1 && conditionStr.indexOf('.') > -1){
+                    action.conditions.push({
+                        item: conditionStr.substr(
+                                conditionStr.indexOf('if') + 2, 
+                                conditionStr.indexOf('.') - conditionStr.indexOf('if') - 2
+                            ).trim(),
+                        property: conditionStr.substr(
+                                conditionStr.indexOf('.') + 1, 
+                                conditionStr.indexOf('is') - conditionStr.indexOf('.') - 1
+                            ).trim(),
+                        value: conditionStr.substr(
+                                conditionStr.indexOf('is') + 2
+                            ).trim()
+                    });
+                }
+            } 
+
+            var actionStr = actionArr.shift().trim();
             if (actionStr.substring(0, 6) == 'go to '){
                 action.type = 'goto';
                 action.destination = actionStr.substring(6).trim();
             } 
-            else if (actionStr.indexOf('.') > -1){
+            else if (actionStr.indexOf('.') > -1 && actionStr.indexOf('=') > -1){
                 action.type = 'set'
                 action.item = actionStr.substr(
                     0, 
@@ -126,6 +155,10 @@ class Adventure {
                 action.value = actionStr.substr(
                     actionStr.indexOf('=') + 1
                 ).trim();
+            }
+
+            if (actionArr.length > 0) {
+                action.message = actionArr[actionArr.length - 1].trim();
             }
 
             return action;
@@ -204,5 +237,31 @@ class Adventure {
             }
         }
         return propertyFound;
+    }
+
+    // Sets the first matching property.
+    getProperty(itemTitle, property) {
+        var matchedValue = null,
+        propertyFound = false;
+        $.each(this.nodes, function(nodeIndex, node){
+            $.each(node.items, function(itemIndex, item){
+                if (itemTitle && item.title.toLowerCase() == itemTitle.toLowerCase()){
+                    $.each(item.status, function(key, value){
+                        if (property && key.toLowerCase() == property.toLowerCase()){
+                            matchedValue = value;
+                            propertyFound = true;
+                            return false;
+                        };
+                    });
+                };
+                if (propertyFound === true){
+                    return false;
+                }
+            });
+            if (propertyFound === true){
+                return false;
+            }
+        });
+        return matchedValue;
     }
 }

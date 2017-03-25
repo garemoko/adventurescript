@@ -14,7 +14,7 @@ class Debug {
                 $('#debug').append('\n' + value);
             }
             else {
-                $('#debug').append('\n' + JSON.stringify(value, null, '\t').replace(/\\n/g, '\n'));
+                $('#debug').append('\n' + JSON.stringify(value, null, '  ').replace(/\\n/g, '\n'));
             }
         }
     }

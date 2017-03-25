@@ -27,6 +27,8 @@ Place: The Kitchen
 There is some porridge cooking. 
 => Go to The Hall => go to the Hall
 => Go to The entrance => go to The entrance
+Item: Hat
+=> Put on => if hat.location is The Kitchen => hat.location = your head => You look cool.
 
 Place: You win!
 Well done you won!
@@ -37,4 +39,7 @@ Well done you won!
 => Start again => door.open = Closed
 
 Place: Pockets
-Inventory
+Inventory You have the following item{s}
+
+Place: Your Head
+Inventory You are wearing

@@ -89,22 +89,26 @@ class Game {
                             .append(
                                 $('<p id="item-buttons-' + slug(item.title) + '" />')
                                     .text(item.title + ': ')
+                                    .addClass('hidden')
                             );
                         $.each(item.actions, function(index, action){
-                            $('#item-buttons-' + slug(item.title))
-                                .append(buildActionButton(action, 'default'));
+                            var button = buildActionButton(action, 'default');
+                            if (button.hasClass('hidden') == false){
+                                // Don't even add hidden buttons to the DOM.
+                                $('#item-buttons-' + slug(item.title)).append(button);
+                                $('#item-buttons-' + slug(item.title)).removeClass('hidden');
+                            }
                         });
                     }
                 });
                 var pluralSuffix = node.items.length == 1 ? '' : "s";
                 var itemsList = node.descripton.replace(/{s}/g , pluralSuffix) + ': ' + arrayToList(itemTitles);
-                $('#inventories-' + slug(node.title) + '-title').after($('<p id="items" />').text(itemsList));
+                $('#inventory-' + slug(node.title) + '-title').after($('<p id="items" />').text(itemsList));
             }
             else {
-                $('#inventories-' + slug(node.title) + '-title').after($('<p id="items" />').text('There are no items here.'));
+                $('#inventory-' + slug(node.title) + '-title').after($('<p id="items" />').text('There are no items here.'));
             }
         }
-
 
         function buildActionButton(action, type) {
             var button = $('<button data-action-label ="' + slug(action.label) + '" type="button" class="action-btn btn btn-' + type + '">' 

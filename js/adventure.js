@@ -2,12 +2,16 @@ class Adventure {
 
     constructor(adventureName, successCallback, errorCallback) {
         var adventure = this;
-        adventure.nodes = []
-        var jqxhr = $.get('adventures/' + adventureName + '.adventurescript', function(data){
-            var places = data.split(/place:/i);
-            addPlaces(places);
-            successCallback();
+        adventure.nodes = [];
+        var jqxhr = $.get({
+            url: 'adventures/' + adventureName + '.adventurescript',
+            cache: false
         })
+            .done(function(data){
+                var places = data.split(/place:/i);
+                addPlaces(places);
+                successCallback();
+            })
           .fail(errorCallback);
 
         function addPlaces(places){
@@ -104,13 +108,25 @@ class Adventure {
                 action.label = actionArr[0].trim();
             }
 
-            $.each(actionArr, function(index, actionStr){
-                actionStr = actionStr.trim();
-                if (actionStr.substring(0, 6) == 'go to '){
-                    action.destination = actionStr.substring(6).trim();
-                }
-                // todo figure out status modification actions
-            });
+            var actionStr = actionArr[0].trim();
+            if (actionStr.substring(0, 6) == 'go to '){
+                action.type = 'goto';
+                action.destination = actionStr.substring(6).trim();
+            } 
+            else if (actionStr.indexOf('.') > -1){
+                action.type = 'set'
+                action.item = actionStr.substr(
+                    0, 
+                    actionStr.indexOf('.')
+                ).trim();
+                action.property = actionStr.substr(
+                    actionStr.indexOf('.') + 1, 
+                    actionStr.indexOf('=') - actionStr.indexOf('.') - 1
+                ).trim();
+                action.value = actionStr.substr(
+                    actionStr.indexOf('=') + 1
+                ).trim();
+            }
 
             return action;
         }
@@ -120,13 +136,73 @@ class Adventure {
         return this.nodes[0];
     }
 
+    // Returns the first matching node.
     getNode(name) {
         var matchedNode = false;
         $.each(this.nodes, function(index, node){
             if (name && node.title.toLowerCase() == name.toLowerCase()){
                 matchedNode = node;
+                return false;
             };
         });
         return matchedNode;
+    }
+
+    // Returns the first matching node index.
+    getNodeIndex(name) {
+        var matchedNodeIndex = -1;
+        $.each(this.nodes, function(index, node){
+            if (name && node.title.toLowerCase() == name.toLowerCase()){
+                matchedNodeIndex = index;
+                return false
+            };
+        });
+        return matchedNodeIndex;
+    }
+
+    propertyExists(itemTitle, property){
+        return this.setProperty(itemTitle, property);
+    }
+
+    // Sets the first matching property.
+    setProperty(itemTitle, property, newValue = undefined) {
+        var adventure = this,
+        propertyFound = false,
+        matchedNodeIndex = null,
+        matchedItemIndex = null;
+
+        $.each(adventure.nodes, function(nodeIndex, node){
+            $.each(node.items, function(itemIndex, item){
+                if (itemTitle && item.title.toLowerCase() == itemTitle.toLowerCase()){
+                    $.each(item.status, function(key, value){
+                        if (property && key.toLowerCase() == property.toLowerCase()){
+                            propertyFound = true;
+                            if (typeof newValue != 'undefined'){
+                                adventure.nodes[nodeIndex].items[itemIndex].status[key] = newValue;
+                            }
+                            matchedNodeIndex = nodeIndex;
+                            matchedItemIndex = itemIndex;
+                            return false;
+                        };
+                    });
+                };
+                if (propertyFound === true){
+                    return false;
+                }
+            });
+            if (propertyFound === true){
+                return false;
+            }
+        });
+        if (property === 'location' && propertyFound === true){
+            var newNodeIndex = this.getNodeIndex(newValue);
+            if (newNodeIndex > -1){
+                // Move the item from one node to the other.
+                adventure.nodes[newNodeIndex].items.push(
+                    adventure.nodes[matchedNodeIndex].items.splice(matchedItemIndex, 1)[0]
+                );
+            }
+        }
+        return propertyFound;
     }
 }

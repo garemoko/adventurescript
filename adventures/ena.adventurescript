@@ -2,12 +2,12 @@ Place: Ena's House
 This is a lovely house with curtains
 and pet rats. 
 => Go to Node 2 => go to Node Two
-=> Go to Node 3 => go to node three
 Item: Door
 Open = Closed
 Locked = Locked
 => Unlock => door.locked = unlocked
 => Open => door.open = open
+=> Go Through => go to node three
 
 
 Place: Node Two
@@ -18,6 +18,8 @@ It has a two line decsription
 Item: Key
 
 Item:Brown Cat
+=> Kick => brown cat.location = node three
+Item:Toby Downes
 
 Place: Node Three
 This is the third node.

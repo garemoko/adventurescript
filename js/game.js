@@ -1,8 +1,9 @@
 class Game {
     constructor(adventure){
+
+        var game = this;
         var adventure = adventure;
         var currentNode = adventure.getFirstNode();
-        var game = this;
         setScene(currentNode);
 
         function setScene(node){
@@ -19,7 +20,15 @@ class Game {
             if (node.items.length > 0) {
                 var itemTitles = [];
                 $.each(node.items, function(index, item){
-                    itemTitles.push(item.title);
+                    var title = item.title;
+                    if (Object.keys(item.status).length > 1) {
+                        $.each(item.status, function(key, value){
+                            if (key !='location') {
+                                title = value + ' ' + title;
+                            }
+                        });
+                    }
+                    itemTitles.push(title);
                     if (item.actions.length > 0) {
                         $('#game')
                             .append(
@@ -42,17 +51,38 @@ class Game {
         }
 
         function buildActionButton(action, type) {
-            var destinationNode = adventure.getNode(action.destination);
             var button = $('<button type="button" class="btn btn-' + type + '">'+action.label+'</button>');
-            if (destinationNode === false){
-                button.addClass('disabled');
+
+            if (action.type == 'goto') {
+                var destinationNode = adventure.getNode(action.destination);
+                if (destinationNode === false){
+                    button.addClass('disabled');
+                }
+                else {
+                    button.click(function(){
+                        currentNode = destinationNode;
+                        setScene(currentNode);
+                    });
+                }
+                return button;
             }
-            else {
-                button.click(function(){
-                    setScene(destinationNode);
-                });
+
+            if (action.type == 'set'){
+
+                var propertyExists = adventure.propertyExists(action.item, action.property);
+                if (propertyExists === false){
+                    button.addClass('disabled');
+                }
+                else {
+                    button.click(function(){
+                        adventure.setProperty(action.item, action.property, action.value);
+                        // Update the scene.
+                        setScene(currentNode);
+                    });
+                }
+                return button;
             }
-            return button;
+            
         }
 
         function isNodeValid(nodeTitle) {

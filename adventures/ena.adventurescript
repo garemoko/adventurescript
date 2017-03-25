@@ -1,0 +1,27 @@
+Place: Ena's House
+This is a lovely house with curtains
+and pet rats. 
+=> Go to Node 2 => go to Node Two
+=> Go to Node 3 => go to node three
+Item: Door
+Open = Closed
+Locked = Locked
+=> Unlock => door.locked = unlocked
+=> Open => door.open = open
+
+
+Place: Node Two
+This is the second node.
+It has a two line decsription
+=> Go to Node 3 => go to Node Three
+=> Go to Ena's House => go to Ena's House
+Item: Key
+
+Item:Brown Cat
+
+Place: Node Three
+This is the third node.
+It has a two line decsription
+=> Go to Node 2 => go to Node Two
+=> Go to Ena's House => go to Ena's House
+=> don't go anywhere => go to nowhere

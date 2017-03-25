@@ -3,7 +3,7 @@ class Adventure {
     constructor(adventureName, successCallback, errorCallback) {
         var adventure = this;
         adventure.nodes = []
-        var jqxhr = $.get('adventures/' + adventureName + '.adventureScript', function(data){
+        var jqxhr = $.get('adventures/' + adventureName + '.adventurescript', function(data){
             var places = data.split(/place:/i);
             addPlaces(places);
             successCallback();

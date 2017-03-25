@@ -8,13 +8,25 @@ class Game {
         function setScene(node){
             
             $('#game').empty()
-                .append($('<h2/>').text(node.title))
-                .append($('<p/>').text(node.descripton));
+                .append($('<h2 id="game-title"/>').text(node.title))
+                .append($('<p id="game-description" />').text(node.descripton));
 
             $.each(node.actions, function(index, action){
                 $('#game')
                     .append(buildActionButton(action, 'default'));
             });
+
+            if (node.items.length > 0) {
+                var itemTitles = [];
+                $.each(node.items, function(index, item){
+                    itemTitles.push(item.title);
+                });
+                var itemsList = 'You can see the following items: ' + arrayToList(itemTitles);
+                $('#game-description').after($('<p id="items" />').text(itemsList));
+            }
+            else {
+                $('#game-description').after($('<p id="items" />').text('There are no items here.'));
+            }
         }
 
         function buildActionButton(action, type) {
@@ -37,6 +49,11 @@ class Game {
                 return false
             }
             return true;
+        }
+
+        // ['item1', 'item2', 'item 3'] returns 'item1, item2 and item3'
+        function arrayToList(array){
+            return array.join(", ").replace(/, ((?:.(?!, ))+)$/, ' and $1');
         }
     }
 }

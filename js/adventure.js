@@ -95,12 +95,19 @@ class Adventure {
         function parseAction(actionArr){
             var action = {};
             actionArr.shift();
-            action.label = actionArr.shift().trim();
+
+            // If the description is also the action, don't remove it from the array.
+            if (actionArr.length > 1) {
+                action.label = actionArr.shift().trim();
+            }
+            else {
+                action.label = actionArr[0].trim();
+            }
 
             $.each(actionArr, function(index, actionStr){
                 actionStr = actionStr.trim();
                 if (actionStr.substring(0, 6) == 'go to '){
-                    action.destination = actionStr.substring(6);
+                    action.destination = actionStr.substring(6).trim();
                 }
                 // todo figure out status modification actions
             });

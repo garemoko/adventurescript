@@ -1,4 +1,4 @@
 var config = {
-    debug: true,
+    debug: false,
     game: 'ena'
 }

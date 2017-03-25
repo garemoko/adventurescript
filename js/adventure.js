@@ -123,7 +123,7 @@ class Adventure {
     getNode(name) {
         var matchedNode = false;
         $.each(this.nodes, function(index, node){
-            if (node.title.toLowerCase() == name.toLowerCase()){
+            if (name && node.title.toLowerCase() == name.toLowerCase()){
                 matchedNode = node;
             };
         });

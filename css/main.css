@@ -5,3 +5,8 @@
 #game p {
     white-space: pre-line;
 }
+
+.btn {
+    margin: 5px;
+    margin-left: 0px;
+}

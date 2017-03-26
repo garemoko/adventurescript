@@ -4,7 +4,7 @@ class Adventure {
         var adventure = this;
         adventure.nodes = [];
         adventure.inventoryIds = [];
-        var places = data.split(/place:|inventory:/i);
+        var places = data.split(/^place:/im);
         addPlaces(places);
 
         function addPlaces(places){
@@ -30,7 +30,7 @@ class Adventure {
             // The description ends when we have an empty line or an action
             node.descripton = '';
             while (lines.length > 0 && lines[0].substring(0, 2) != '=>' && lines[0].trim() != '') {
-                node.descripton += lines.shift().trim() + '\n';
+                node.descripton += lines.shift().trim() + '\n\n';
             }
 
             // Trim the inventory keyword from the start of the description. 

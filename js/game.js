@@ -53,9 +53,6 @@ class Game {
                 var itemsList = 'You can see the following item' + pluralSuffix + ': ' + arrayToList(itemTitles);
                 $('#game-description').after($('<p id="items" />').text(itemsList));
             }
-            else {
-                $('#game-description').after($('<p id="items" />').text('There are no items here.'));
-            }
 
             tidyActionButtons('game');
         }

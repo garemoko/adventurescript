@@ -8,7 +8,7 @@ $(function() {
 
     if (config.games.length > 0){
         loadAdventureByUrl(
-            adventuresFolderUrl(config.games[0])
+            adventuresFolderUrl(config.games[0].toLowerCase())
         );
     }
 

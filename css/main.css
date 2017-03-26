@@ -10,3 +10,12 @@
     margin: 5px;
     margin-left: 0px;
 }
+
+#upload-panel .alert {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.panel-heading h3 button {
+    margin-top: -5px;
+}

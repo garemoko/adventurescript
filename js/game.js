@@ -160,7 +160,7 @@ class Game {
 
             if (action.hasOwnProperty('message')){
                 button.click(function(){
-                    $('.alert').remove();
+                    $('#game .alert').remove();
                     $('#game').append($('<div class="alert alert-success" role="alert"/>').text(action.message));
                 });
             }

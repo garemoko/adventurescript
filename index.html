@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Enadventure game engine">
-    <meta name="author" content="Ena Downes">
+    <meta name="description" content="Adventure Script">
+    <meta name="author" content="Andrew and Ena Downes">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Enadventure game engine</title>
+    <title>Adventure Script Game Engine</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,13 +28,50 @@
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Enadventure game engine</a>
+          <a class="navbar-brand" href="#">Adventure Script</a>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown" id="change-adventure">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bundled Adventures<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Adventures<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="upload-nav">Upload</a></li>
+              <li><a href="#" class="download" download="adventure.adventurescript">Download adventurescript</a></li>
+              <li><a href="#" class="download" download="adventure.txt">Download txt</a></li>
+            </ul>
+          </li>
+          
+      </ul>
         <!--/.navbar-collapse -->
       </div>
     </nav>
-
     <div class="container">
+      <div id="upload-panel" class="panel panel-default hidden">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Upload Adventure Script
+            <button type="button" class="close" id="upload-panel-close"> 
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p>Use the control below to upload your Adventure Script file</p>
+          <p><form id="form1" runat="server">
+            <input type='file' id="upload" />
+          </form></p>
+          <div class="well">
+            <b>Hint:</b> If you need a template, download the current adventure as
+            <a href="#" class="download" download="adventure.adventurescript">adventurescript</a>
+            or <a href="#" class="download" download="adventure.txt">txt</a>.
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div id="game" class="col-md-9"> </div>
         <div id="inventories" class="col-md-3"> </div>
@@ -42,7 +79,7 @@
         <pre id='debug' class="hidden"></pre>
         <hr>
       <footer>
-        <p>&copy; 2016 Ena Downes</p>
+        <p>&copy; 2016-2017 Andrew &amp; Ena Downes</p>
       </footer>
     </div> <!-- /container -->
 

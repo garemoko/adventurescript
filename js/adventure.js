@@ -1,19 +1,11 @@
 class Adventure {
 
-    constructor(adventureName, successCallback, errorCallback) {
+    constructor(data) {
         var adventure = this;
         adventure.nodes = [];
         adventure.inventoryIds = [];
-        var jqxhr = $.get({
-            url: 'adventures/' + adventureName + '.adventurescript',
-            cache: false
-        })
-            .done(function(data){
-                var places = data.split(/place:|inventory:/i);
-                addPlaces(places);
-                successCallback();
-            })
-          .fail(errorCallback);
+        var places = data.split(/place:|inventory:/i);
+        addPlaces(places);
 
         function addPlaces(places){
             $.each(places, function(index, place){

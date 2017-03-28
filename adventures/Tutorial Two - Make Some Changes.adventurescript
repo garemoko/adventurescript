@@ -1,5 +1,5 @@
 Place: Tutorial Two - Make Some Changes
 Welcome to the second tutorial. It's time for you to make your first edits. 
-Use the 'Your Adventures' menu to download this tutorial as a txt file. Use a text editor like Notepad or TextEdit to make some changes to the file and then use the 'Upload' option on the 'Your Adventures' menu to reload the adventure. 
+Use the 'Load Adventures' menu to download this tutorial as a txt file. Use a text editor like Notepad or TextEdit to make some changes to the place title and description (this text). Then use the 'Upload' option on the 'Load Adventures' menu to reload the adventure. 
 When you edit the Adventure Script file you'll see that it starts with "Place:". This tells Adventure Script that what follows describes a place within adventure. Take care not to delete or modify the "Place:" keyword or the place will not be loaded. You'll learn how to add additional places in the next tutorial. 
-Once you're done editting and reloading the Adventure Script file, you can move on to Tutorial Three - Places and Actions. 
+Once you're done editting and reloading the Adventure Script file, you can move on to Tutorial Three - Places. 

@@ -3,7 +3,8 @@ var config = {
     games: [
         'Tutorial One - Getting Started',
         'Tutorial Two - Make Some Changes',
-        'Tutorial Three - Places and Actions',
+        'Tutorial Three - Places',
+        'Tutorial Four - Go To Actions',
         'Complete Example'
     ]
 }

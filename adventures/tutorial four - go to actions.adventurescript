@@ -1,5 +1,8 @@
 Place: Tutorial Four - Go To Actions
-Welcome to the fourth tutorial. We're still working on this one. Come back later!
+In this tutorial you'll learn how to connect places together with 'go to' actions. Download the tutorial file and take a look at the buttons below. 
+Notice how the action rows start with "=>", then the text that's on the button. After that, there's a second "=>", the action phrase "go to" and then the name of the place where the player is going to.
+Have a go at adding 'go to' actions between the Wizard's Lair and the Princess Castle. Be creative with the button text, but take care to copy the other elements exactly, including the place names. If you mis-type the name of a place, the button won;t be displayed. Also make sure there's no blank lines between the place description and your actions.
+Once you've completed this tutorial, you're ready for your first Challenge. Choose 'Challenge 1 - Your First Adventure' from the Bundled Adventures dropdown. 
 => Go down the stairs => go to Wizard's Lair
 => Go through the open door => go to Princess Castle
 

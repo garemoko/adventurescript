@@ -47,7 +47,7 @@ $(function() {
     }
 
     function adventuresFolderUrl(gameName){
-        return 'adventures/' + gameName + '.adventurescript'
+        return 'adventures/' + gameName + '.txt'
     }
 
     function loadAdventureByUrl(url){

@@ -1,0 +1,5 @@
+Challenge One - Your First Adventure
+Welcome to your first challenge! Your mission to to create a text based adventure with multiple places and actions. 
+Be creative with story and setting of your adventure. Include a few different characters and scenes. Be make sure your adventure includes a begining and an end so that it's possible to win.
+Once you've created the adventure, show your creation to others by downloading and sending the file to family and friends. They can then upload your adventure at txtory.com to try it out!
+What are you waiting for? Go get started! When you've done, move onto 'Tutorial Five - Introducing Items' to learn about making even more interesting adventures!

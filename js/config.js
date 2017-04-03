@@ -5,6 +5,8 @@ var config = {
         'Tutorial Two - Make Some Changes',
         'Tutorial Three - Places',
         'Tutorial Four - Go To Actions',
+        'Challenge One - Your First Adventure',
+        'Tutorial Five - Introducing Items',
         'Complete Example'
     ]
 }

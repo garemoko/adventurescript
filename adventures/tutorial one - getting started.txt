@@ -1,5 +1,5 @@
-Place: Welcome to Adventure Script
-Welcome to Adventure Script, the programming language that lets kids make adventure games.
+Place: Welcome to Txtory
+Welcome to Txtory, the programming language that lets kids make text adventure games.
 Let's start by getting a feel for how the adventures work. You can explore the adventures you create by clicking the action buttons below this description. 
 Click the button below when you're ready to proceed. 
 => Read the description above then click here => go to Well Done!

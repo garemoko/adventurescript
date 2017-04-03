@@ -1,5 +1,5 @@
 Place: Tutorial Three - Places
-Adventure games involving only one place are no fun. In this tutorial you'll learn how to create new places that the player can move between. 
+Text Adventure games involving only one place are no fun. In this tutorial you'll learn how to create new places that the player can move between. 
 Download the txt file for this tutorial on the Load Adventures menu now and let's look at the Adventure Script together. 
 The first thing you'll notice is that there's two places in the adventure file, this one and "Another Place". Both place definitions start with the keyword "Place:". Have a go at adding a third place at the bottom of the file by typing "Place: My Third Place" on a new line, and writing a description on another new line below that. save and upload your adventure.
 If you created the place correctly, using the name I suggested, you should see that a new action button has appeared below which the player can click to go to the place you just created. This action was placed in the script ahead of time, just waiting for a place called 'My Third Place' to be created. 

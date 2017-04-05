@@ -1,2 +1,6 @@
-Tutorial Five - Introducing Items
-This tutorial is under development. Come back later!
+Place: Tutorial Five - Introducing Items
+You can include items in your adventures to make them more interesting. Items can be small things that might be picked up, interactable fixed objects like doors or living things like an innkeeper, monster or animal. 
+This tutorial includes two simple items. Items are listed immediately after any anctions attached to the place. 
+You'll learn about item actions in the next tutorial. For now, just have a go at adding a few additional items to this adventure, or add some items to the adventure you created in challenge one. When you're done move onto 'Tutorial Six - Item Actions'.
+Item: Rock
+Item: Paper

@@ -1,0 +1,11 @@
+Place: Tutorial Seven - Item Properties
+As well as actions, items can have properties. For example a door can be open or closed. 
+Properties are defined after the item name and before any actions. For example "Open = Closed" tells Txory that the door has a property called 'Open' with a starting value of 'Closed'.
+You can set  propeties with actions. For example "door.open = Open" tells Txtory to look for an item called 'door' with a property called 'open' and set it to 'Open'.
+Try opening and closing the door now, then download this tutorial and add a property and actions so you can turn the light on and off.
+When you're done, move on to 'Tutorial Eight - Conditional Actions'.
+Item: Door
+Open = Closed
+=> Open => door.open = Open
+=> Close => door.open = Closed
+Item: Light

@@ -1,0 +1,14 @@
+Place: Tutorial Eight - Conditional Actions
+Under development - come back later!
+Item: Door
+Open = Closed
+=> Open => if door.open is closed => door.open = Open
+=> Close => if door.open is open => door.open = Closed
+=> Go Through => if door.open is open => go to The Kitchen
+
+Place: The Kitchen
+A warm kitchen with dinner cooking on the oven.
+Item: Light
+On = Off
+=> Turn On => light.on = On
+=> Turn Off => light.on = Off

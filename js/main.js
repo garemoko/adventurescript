@@ -4,11 +4,12 @@ $(function() {
     var adventure;
     var game;
 
-    $.each(config.games, appendAdventureLoadLink);
+    $.each(config.games, appendAdventureCategory);
 
-    if (config.games.length > 0){
+console.log(adventuresFolderUrl(config.games[Object.keys(config.games)[0]][0].toLowerCase()));
+    if (Object.keys(config.games).length > 0 && config.games[Object.keys(config.games)[0]].length > 0){
         loadAdventureByUrl(
-            adventuresFolderUrl(config.games[0].toLowerCase())
+            adventuresFolderUrl(config.games[Object.keys(config.games)[0]][0].toLowerCase())
         );
     }
 
@@ -75,18 +76,37 @@ $(function() {
         debug.log(adventure);
     }
 
-    function appendAdventureLoadLink(index, game){
+    function appendAdventureCategory(category, games){
+        var adventureCategory = $('<ul class="dropdown-menu"></ul>');
+
+        $.each(games, function(index, game){
+            adventureCategory.append(
+                $('<li></li>').append(
+                    getAdventureLoadLink(index, game)
+                )
+            );
+        });
+
+        $('#load-adventures').before(
+            $('<li class="dropdown"></li>')
+                .append(
+                    $('<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + category + '<span class="caret"></span></a>')
+                )
+                .append(adventureCategory)
+        );
+    }
+
+    function getAdventureLoadLink(index, game){
         var adventureLoadLink = $('<a href="#">' + game + '</a>');
         adventureLoadLink.click(function(){
             loadAdventureByUrl(
                 adventuresFolderUrl(game.toLowerCase())
             );
         });
-        $('#change-adventure ul').append(
-            $('<li></li>').append(adventureLoadLink)
-        );
+        return adventureLoadLink;
     }
 });
+
 
 
 

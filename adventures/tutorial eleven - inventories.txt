@@ -1,0 +1,9 @@
+Place: Tutorial Eleven - Inventories
+Under development - come back later!
+Item: Key
+=> Take => if key.location is Tutorial Eleven - Inventories => key.location = pockets
+Item: Hat
+
+Place: Pockets
+Inventory You have the following item{s}
+

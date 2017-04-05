@@ -29,7 +29,12 @@ class Adventure {
 
             // The description ends when we have an empty line or an action
             node.descripton = '';
-            while (lines.length > 0 && lines[0].substring(0, 2) != '=>' && lines[0].trim() != '') {
+            while (
+                lines.length > 0 
+                && lines[0].substring(0, 2) != '=>' 
+                && lines[0].trim().substring(0, 5).toLowerCase() != 'item:' 
+                && lines[0].trim() != ''
+            ) {
                 node.descripton += lines.shift().trim() + '\n\n';
             }
 

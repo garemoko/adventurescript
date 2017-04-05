@@ -1,0 +1,8 @@
+Place: Tutorial Ten - Messages
+Under development - come back later!
+Item: Wise Old Man
+=> Say Hello => => The Wise Man says "Greetings!"
+=> Sing a lullaby => Wise Old Man.location = Bed
+
+Place: Bed
+The Wize man's bed. 

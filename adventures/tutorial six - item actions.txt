@@ -1,0 +1,16 @@
+Place: Tutorial Six - Item Actions
+In this tutorial you'll learn how to add actions to items. Item actions work in exactly the same way as place actions. Just add a line starting "=>" after the name of the item and use the same code. 
+Download the txt file for this adventure to see how I've added an action to the dragon at the foot of the moutain, then follow the same pattern to add an action to the parachute so you can get back down from the dragon's nest.
+When you're done, move on to 'Tutorial Seven - Item Properties'
+=> Walk to the foot of the mountain => go to The Foot of the Mountain
+
+Place: The Foot of the Mountain
+You are at the foot of the mountain. Looking up, you can see a dragon's nest high in the sky. 
+Item: Dragon
+=> Ride => go to The Dragon's Nest
+Item: Goat
+
+Place: The Dragon's Nest
+You are in the dragon's nest. How are you going to get back down?
+Item: Parachute
+Item: Egg

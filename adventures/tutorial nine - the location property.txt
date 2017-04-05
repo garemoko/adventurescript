@@ -1,0 +1,14 @@
+Place: Tutorial Nine - The Location Property
+Under development - come back later!
+Item: Door
+=> Go Through => go to The Kitchen
+
+Place: The Hall
+The hall has great decor.
+=> Go to The Kitchen => go to The Kitchen
+Item: Cat
+=> Shoo => if cat.location is the Hall => cat.location = The Kitchen
+
+Place: The Kitchen
+There is some porridge cooking. 
+=> Go to The Hall => go to the Hall

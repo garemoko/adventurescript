@@ -1,14 +1,24 @@
 Place: Tutorial Nine - The Location Property
-Under development - come back later!
+You learnt about item properties back in Tutorial Five, but what you didn't learn is that each item also has a special property called 'location'. By setting the location, you can move the item to another place in your adevnture. You can also use the location in conditional actions.
+Download the txt file for this tutorial and take a look at the Cat's Shoo action. If the cat is in the hall, and you shoo it, it will go into the Kitchen. If it's in the Kitchen, you can shoo it into The Dinning Room. Notice how two actions with the same label combine to make a button that triggers two different actions depending on the location property.
+This tutorial is missing a shoo action for the cat if he's in the dinning room. Add that action so you can send him back to the hall. Then move on to 'Tutorial Ten - Messages'.
 Item: Door
 => Go Through => go to The Kitchen
 
 Place: The Hall
 The hall has great decor.
 => Go to The Kitchen => go to The Kitchen
+=> Go to The Dining Room => go to he Dining Room
 Item: Cat
 => Shoo => if cat.location is the Hall => cat.location = The Kitchen
+=> Shoo => if cat.location is the Kitchen => cat.location = The Dinning Room
 
 Place: The Kitchen
 There is some porridge cooking. 
 => Go to The Hall => go to the Hall
+=> Go to The Dining Room => go to he Dining Room
+
+Place: The Dinning Room
+There's no food on the table. It's still cooking.
+=> Go to The Hall => go to the Hall
+=> Go to The Kitchen => go to The Kitchen

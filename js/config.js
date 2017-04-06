@@ -16,7 +16,7 @@ var config = {
         ],
         Challenges: [
             'Challenge One - Your First Adventure',
-            'Challenge Two - Add Some Items',
+            'Challenge Two - A World of Things',
             'Challenge Three - Movement and Messages'
         ],
         Examples: [

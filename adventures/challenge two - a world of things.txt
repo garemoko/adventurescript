@@ -1,0 +1,5 @@
+Place: Challenge Two - A World of Things
+It's time for your second challenge? Are you ready?
+Now that you've learnt about items and conditional items, you should have what it takes to create a simple puzzle. Have a go at creating an escape game where the player has to interact with a number of different items in the right combinations in order to escape and win.
+In Challenge One you worked on your own to design and create your adventure. This time, why not work with a friend, parent or teacher to come up with the idea for your game. Each person should still create their version of the game by themselves though, to make sure you have both understood the tutorials so far. If you do get stuck, go back to the earlier tutorials to practice them again, or have a look at some of the example adventures on the Examples menu.
+When you're done, move on to 'Tutorial Nine - The Location Property'.

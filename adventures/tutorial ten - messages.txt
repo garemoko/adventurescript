@@ -1,8 +1,13 @@
 Place: Tutorial Ten - Messages
-Under development - come back later!
-Item: Wise Old Man
-=> Say Hello => => The Wise Man says "Greetings!"
-=> Sing a lullaby => Wise Old Man.location = Bed
+For players of the last tutorial, it could have been confusing that the cat disappeared from the room when they shooed it. They might not have realized that it had run away into another room. Messages give your players extra information about what's happened when they clicked on an action button. Have a go at shouting for the wizard now and see what happens.
+The Wizard will give you the rest of your instructions for the tutorial, just ask him!
+=> Shout for the Wizard => if wizard.location is bed => wizard.location = Tutorial Ten - Messages => A magestic wizard enters the room and sits down. "Ask me your questions, he says."
 
 Place: Bed
-The Wize man's bed. 
+The Wizard's bed.
+Item: Wizard
+=> "Hello" => => "Greetings!" belows the Wizard heartily. 
+=> "How do messages work?" => => "Messages can be added to the end of an action with an extra '\\=>' followed by the text of the message" explains the wizard. "As you can see from this tutorial, messages can also be used with blank actions, with just the button label, two '\\=>' symbols and the message text."
+=> "What's my task?" => => "Your task", the wizard explains, "is to download this tutorial and add some more messages. Why don't you add an explanation that I've gone to bed when you sing me a lullaby, or add a few more options to our conversation?"
+=> "Which tutorial is next?" => => "Your next tutorial is 'Tutorial Eleven - Inventories'", the wizard replies, "You'll learn about how you can pick up and put on items to use throughout your adventures."
+=> Sing the wizard a lullaby => Wizard.location = Bed

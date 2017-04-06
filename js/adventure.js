@@ -102,6 +102,17 @@ class Adventure {
 
         function parseAction(actionArr){
             var action = {};
+
+            // allow => symbols to be escaped as \\=>
+            var i = 0;
+            while (actionArr.length > i){
+                if (actionArr[i].slice(-1) == '\\'){
+                    actionArr[i] = actionArr[i].slice(0, -2) + '=>' + actionArr.splice(i + 1, 1);
+                } else {
+                    i++;
+                }
+            }
+
             actionArr.shift();
 
             // If the description is also the action, don't remove it from the array.

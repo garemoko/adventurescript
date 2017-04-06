@@ -1,5 +1,7 @@
 Place: Tutorial Eight - Conditional Actions
-Under development - come back later!
+In the real world, you can't open a door that's already open or close a door that's already closed. That's represented in Txtory by conditional actions. 
+Take a look at the txt file for this tutorial and you'll see that the door has a conditional action "=> Open => if door.open is closed => door.open = Open". This tells Txtory to add a button labelled "Open" if the door.open property is closed. Notice how the condition is added between the label and the action with an extra "=>". You can add as many conditions as you need to following that approach. 
+The kitchen light has not has conditions added to it's actions. Have a go at adding those now. When you're done, it's time to put what you've learnt about items to use in 'Challenge Two - A World of Things'.
 Item: Door
 Open = Closed
 => Open => if door.open is closed => door.open = Open
@@ -8,6 +10,7 @@ Open = Closed
 
 Place: The Kitchen
 A warm kitchen with dinner cooking on the oven.
+=> Go Back => go to Tutorial Eight - Conditional Actions
 Item: Light
 On = Off
 => Turn On => light.on = On

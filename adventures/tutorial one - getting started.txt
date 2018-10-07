@@ -7,4 +7,4 @@ Click the button below when you're ready to proceed.
 Place: Well Done!
 Great job! You've got the hang of this.
 As you progress, you'll create more complex adventures including interesting locations to explore and items you can collect and use. For now, let's move on to the next tutorial.
-Choose 'Bundled Adventures' on the menu then 'Tutorial Two - Make Some Changes'.
+Choose 'Tutorials' on the menu then 'Tutorial Two - Make Some Changes'.

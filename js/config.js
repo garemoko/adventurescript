@@ -1,5 +1,5 @@
 var config = {
-    debug: false,
+    debug: true,
     games: {
         Tutorials: [
             'Tutorial One - Getting Started',
@@ -20,7 +20,8 @@ var config = {
             'Challenge Three - Movement and Messages'
         ],
         Examples: [
-            'Complete Example'
+            'Complete Example',
+            'Jailbreak'
         ]
     }
 }

@@ -1,0 +1,26 @@
+Place: Jail Cell
+You are in Jail. You need to escape.
+=> Leave the cell => if door.open = Open => go to Jail Hall
+Item: Crowbar
+=> Take => if crowbar.location is Jail Cell => crowbar.location = inventory => What a lovely crowbar
+Item: Door
+Locked = locked
+Open = Closed
+=> Break Lock => if crowbar.location is inventory => if door.locked is locked => door.locked = Unlocked => You smash the lock.
+=> Open => if door.locked is unlocked => if door.open is Closed => door.open = Open => The door opens.
+=> Open => if door.locked is locked =>  if door.open is Closed => => The door is locked.
+=> Close => if door.open is Open => door.open = Closed => The door closes.
+
+Place: Jail Hall
+There is high security. There are ten policemen patrolling the hall.
+=> Go back to the cell => go to Jail Cell
+Item: Doughnut
+=> Take => if doughnut.location is Jail Hall => doughnut.location = inventory => You picked up the doughnut. 
+=> Eat => if doughnut.location is Inventory => doughnut.location = stomach => Yum yum yum.
+Flavour = Blueberry
+
+Place: Stomach
+Inventory You have eaten...
+
+Place: Inventory
+Inventory You have the following item{s}
